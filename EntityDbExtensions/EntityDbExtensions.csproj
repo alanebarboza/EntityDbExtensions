@@ -1,0 +1,68 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+	<TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>false</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Title>EntityDbExtensions</Title>
+    <Company>Alan Evandro Barboza</Company>
+    <Description>Tired of manual and repetitive code when it comes to deleting child and subsequent objects with validations and nested loops? 
+The EntityDbExtensions library simplifies the process for you. 
+By simply invoking the method UpdateAndHandleDeletedChildren in the .Update of the root class, it will automatically handle the recursive deletion of all child, grandchild, and subsequent objects that have been removed from your root class.
+
+The method will inspect classes containing a virtual child property with a List type, such as IEnumerable&lt;YourClass&gt;, ICollection&lt;YourClass&gt; or List&lt;YourClass&gt;. 
+
+It performs a validation check to determine if the object has been deleted, marking it as removed. 
+This marking signals Entity Framework to handle the deletion seamlessly. 
+The validation process is recursive, ensuring that all child and subsequent objects undergo thorough validation for removal.</Description>
+    <Copyright>Copyright (c) 2024 ALAN EVANDRO BARBOZA</Copyright>
+    <PackageIcon>icon.png</PackageIcon>
+    <PackageTags>EntityDbExtensions; Entity; EntityExtensions; EntityFramework; EntityFrameWorkCore; Extensions;  EntityReflection; Reflection; DbExtensions; HandleDeletion; HandleDeletedChildren</PackageTags>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <FileVersion>1.0.0.0</FileVersion>
+    <PackageProjectUrl>https://github.com/alanebarboza/EntityDbExtensions</PackageProjectUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/alanebarboza/EntityDbExtensions</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <AnalysisLevel>none</AnalysisLevel>
+    <PackageLicenseFile>LICENCE</PackageLicenseFile>
+    <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+    <Version>1.2.0</Version>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\icon.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\LICENCE">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.32" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+</Project>
