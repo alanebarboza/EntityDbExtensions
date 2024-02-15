@@ -68,17 +68,12 @@ namespace Benchmark_EntityDbExtensions
             for (int i = 0; i < 10; i++)
             {
                 await PrepareDatabase(_sqlLiteDbContext);
-
                 var RootClassDb = GetRootClassDb();
-
                 var RootClassUpdate = GetRootClassUpdated();
 
                 await _sqlLiteDbContext.UpdateAndHandleDeletedChildren(RootClassUpdate, RootClassDb); // EntityDbExtensions
-
-                _sqlLiteDbContext.Update(RootClassUpdate);
-
+              
                 await _sqlLiteDbContext.SaveChangesAsync();
-
                 await ClearDatabase(_sqlLiteDbContext, RootClassUpdate);
             }
         }
@@ -89,7 +84,6 @@ namespace Benchmark_EntityDbExtensions
             for (int i = 0; i < 10; i++)
             {
                 await PrepareDatabase(_sqlServerDbContext);
-
                 var RootClassDb = GetRootClassDb();
                 var RootClassUpdate = GetRootClassUpdated();
 
@@ -111,7 +105,6 @@ namespace Benchmark_EntityDbExtensions
                 _sqlServerDbContext.RootClass.Update(RootClassUpdate);
 
                 await _sqlServerDbContext.SaveChangesAsync();
-
                 await ClearDatabase(_sqlServerDbContext, RootClassUpdate);
             }
         }
@@ -122,9 +115,7 @@ namespace Benchmark_EntityDbExtensions
             for (int i = 0; i < 10; i++)
             {
                 await PrepareDatabase(_sqlServerDbContext);
-
                 var RootClassDb = GetRootClassDb();
-
                 var RootClassUpdate = GetRootClassUpdated();
 
                 await _sqlServerDbContext.UpdateAndHandleDeletedChildren(RootClassUpdate, RootClassDb); // EntityDbExtensions
@@ -132,7 +123,6 @@ namespace Benchmark_EntityDbExtensions
                 _sqlServerDbContext.Update(RootClassUpdate);
 
                 await _sqlServerDbContext.SaveChangesAsync();
-
                 await ClearDatabase(_sqlServerDbContext, RootClassUpdate);
             }
         }
