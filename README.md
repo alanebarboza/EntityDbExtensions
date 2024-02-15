@@ -53,6 +53,16 @@ using EntityDbExtensions;
  }
 ```
 
+Benchmark case:
+```bash
+| Method                                                                | Mean     | Error    | StdDev   | Gen0     | Gen1    | Allocated |
+|---------------------------------------------------------------------- |---------:|---------:|---------:|---------:|--------:|----------:|
+| Default_EntityUpdate_Benchmark_SQLLite                                | 22.41 ms | 0.226 ms | 0.212 ms | 250.0000 |       - |   4.02 MB |
+| EntityDbExtensions_UpdateAndHandleDeletedChildren_Benchmark_SQLLite   | 22.23 ms | 0.224 ms | 0.210 ms | 250.0000 |       - |   4.16 MB |
+| Default_EntityUpdate_Benchmark_SQLServer                              | 16.71 ms | 0.120 ms | 0.101 ms | 218.7500 | 31.2500 |   3.55 MB |
+| EntityDbExtensions_UpdateAndHandleDeletedChildren_Benchmark_SQLServer | 16.56 ms | 0.153 ms | 0.136 ms | 218.7500 | 31.2500 |   3.69 MB |
+```
+
 
 #### Contribution
 Contributions are welcome! If you find any issues or have suggestions for improvements, feel free to open an issue or create a pull request.
