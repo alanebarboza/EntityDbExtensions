@@ -32,7 +32,7 @@ The validation process is recursive, ensuring that all child and subsequent obje
    - Install the EntityDbExtensions NuGet package in your .NET project.
 
 ```bash
-<PackageReference Include="EntityDbExtensions" Version="1.0.1" />
+<PackageReference Include="EntityDbExtensions" Version="1.2.0" />
 ```
 
 Usage:
@@ -47,7 +47,7 @@ using EntityDbExtensions;
     var entityDb = await Get(entity.Id);
     if (entityDb == null) throw new InvalidOperationException($"{nameof(YourEntity)} not found.");
 	
-    _yourDbContext.UpdateAndHandleDeletedChildren(entity, entityDb);  // Here the magic happens.
+    await _yourDbContext.UpdateAndHandleDeletedChildren(entity, entityDb);  // Here the magic happens.
 
     return await _yourDbContext.SaveChangesAsync() > 0;
  }
