@@ -15,8 +15,7 @@ public class SqlServerDbContext : DbContext, IDbContext
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         optionsBuilder.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
-        // optionsBuilder.UseSqlServer("Server=YOUR_SQL;Database=YOUR_DB;User Id=YOUR_USER;Password=YOUR_PASS;TrustServerCertificate=True;");
-        optionsBuilder.UseSqlServer("Server=AlanBarboza\\SQLEXPRESS;Database=Benchmark_EntityDbExtensions;User Id=sa;Password=123;TrustServerCertificate=True;");
+        optionsBuilder.UseSqlServer("Server=YOUR_SQL;Database=YOUR_DB;User Id=YOUR_USER;Password=YOUR_PASS;TrustServerCertificate=True;");
 
     }
 
